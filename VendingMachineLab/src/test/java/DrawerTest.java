@@ -40,7 +40,7 @@ public class DrawerTest {
     @Test
     public void canRemoveProduct(){
         drawer.addToDrawer(drink);
-        drawer.removeFromDrawer(drink);
+        drawer.removeFromDrawer();
         assertEquals(0, drawer.productCount());
     }
 

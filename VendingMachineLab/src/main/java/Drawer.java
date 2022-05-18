@@ -37,8 +37,9 @@ public class Drawer {
         this.products.add(product);
     }
 
-    public Product removeFromDrawer(Product product){
-        this.products.remove(product);
-        return product;
+    public Product removeFromDrawer(){
+        Product productToRemove = products.get(0);
+        this.products.remove(0);
+        return productToRemove;
     }
 }

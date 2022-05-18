@@ -37,5 +37,37 @@ public class VendingMachine {
         return this.coinReturn.numberOfCoins();
     }
 
+    public void addDrawer(Drawer drawer){
+        drawers.add(drawer);
+    }
+
+    public Product buyProduct(Drawer.Code code) {
+        if (coinCount() >= getDrawer(code).getPrice()) {
+            this.coins.clear();
+            return getDrawer(code).removeFromDrawer();
+        }
+        return null;
+    }
+
+
+    public Drawer getDrawer(Drawer.Code code) {
+        for (Drawer drawer : drawers) {
+            if (drawer.getCode() == code) {
+                return drawer;
+            }
+        }
+        return null;
+    }
+
+
+
+
+    public double coinCount(){
+        double total = 0.0;
+        for (Coin coin: coins){
+            total += coin.getCoinValue();
+        }
+        return total;
+    }
 
 }
