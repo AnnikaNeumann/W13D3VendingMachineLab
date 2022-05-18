@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class VendingMachineTest {
 
@@ -29,4 +30,18 @@ public class VendingMachineTest {
     public void hasCoinReturn(){
         assertEquals(0, vendingMachine.numberOfCoinsInReturn());
     }
+
+    @Test
+    public void canAddCoin(){
+        vendingMachine.addCoin(coin);
+        assertEquals(1, vendingMachine.numberOfCoins());
+    }
+
+    @Test
+    public void canCheckIfValid(){
+        coin = new Coin(CoinType.FIVE);
+        vendingMachine.addCoin(coin);
+        assertEquals(0, vendingMachine.numberOfCoins());
+        assertEquals(1, vendingMachine.numberOfCoinsInReturn());
+        }
 }

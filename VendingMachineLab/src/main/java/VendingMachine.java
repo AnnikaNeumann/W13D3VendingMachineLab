@@ -13,11 +13,16 @@ public class VendingMachine {
     }
 
     public void addCoin(Coin coin){
-        coins.add(coin);
+        if (isValid(coin)) {
+            coins.add(coin);
+        }
+        else{
+            coinReturn.addCoinToDrawer(coin);
+        }
     }
 
     public boolean isValid(Coin coin){
-        return coin.getCoinValue() > 0.5;
+        return coin.getCoinValue() > 0.05;
     }
 
     public int numberOfCoins(){
